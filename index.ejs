@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sytle.css">
+    <title>Task Scheduler</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Task Scheduler</h1>
+        <form action="/add" method="POST">
+            <input type="text" name="task" placeholder="Task description" required>
+            <input type="datetime-local" name="time" required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <h2>Scheduled Tasks</h2>
+        <ul>
+            <% tasks.forEach((task) => { %>
+                <li><%= task.task %> at <%= task.time %></li>
+            <% }); %>
+        </ul>
+
+        <h2>Completed Tasks</h2>
+        <ul>
+            <% completedTasks.forEach((task) => { %>
+                <li><%= task.task %> executed at <%= task.time %></li>
+            <% }); %>
+        </ul>
+    </div>
+</body>
+</html>
